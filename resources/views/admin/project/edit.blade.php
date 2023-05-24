@@ -50,8 +50,20 @@
                     <label class="form-check-label" for="completion_date">Completion date</label>
                     <input id="completion_date" class="form-control form-control-sm @error('completion_date') is-invalid @enderror" type="text" name="completion_date" value="{{old('completion_date', $project->completion_date)}}">
                     @error('completion_date')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="my-4">
+                    <label class="form-check-label" for="type_id">Completion date</label>
+                    <select class="form-select @error('type_id') is-invalid @enderror" aria-label="Default select example" name="type_id" id="type_id">
+                        <option @selected(old('type_id',$project->id)=="") value="">No type</option>
+                        @foreach ($types as $type )
+                            <option value="{{$type->id}}" @selected(old('type_id',$project->id)==$type->id)>{{$type->name}}</option>
+                        @endforeach
+                    </select>
+                    @error('type_id')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
 

@@ -16,6 +16,12 @@ class Project extends Model
         'completion_date',
         'category',
         'client',
-        'slug'
+        'slug',
+        'type_id'
     ];
+
+    public function type()
+    {
+        return $this->belongsTo(Type::class);
+    }
 }

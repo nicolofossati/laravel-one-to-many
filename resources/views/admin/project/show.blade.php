@@ -11,6 +11,7 @@
             <p class="card-text">{{$project->description}}</p>
             <p class="card-text">Client: {{$project->client}}</p>
             <p class="card-text">Category: {{$project->category}}</p>
+            <p class="card-text">Type: {{($project->type)==null?'Type doesn\'t exists':$project->type->name}}</p>
         </div>
         <div class="card-footer text-muted d-flex justify-content-center">
             <p class="me-5">Creation date: {{$project->creation_date}}</p>
