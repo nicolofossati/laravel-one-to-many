@@ -6,13 +6,13 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-        <a href="#" class="nav-link active" aria-current="page">
+        <a href="{{route('admin.dashboard')}}" class="nav-link {{Route::currentRouteName() == 'admin.dashboard'?'active':'text-white'}}" aria-current="page">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
           Home
         </a>
       </li>
       <li>
-        <a href="{{route('admin.projects.index')}}" class="nav-link text-white">
+        <a href="{{route('admin.projects.index')}}" class="nav-link {{Route::currentRouteName() == 'admin.projects.index'?'active':'text-white'}}">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
           Projects
         </a>

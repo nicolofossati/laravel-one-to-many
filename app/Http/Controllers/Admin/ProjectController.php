@@ -87,6 +87,12 @@ class ProjectController extends Controller
         $data = $request->validated();
         $data['slug'] = Str::slug($request->title, '-');
 
+        $checkPost = Project::where('slug', $data['slug'])->where('id', '<>', $project->id)->first();
+
+        if ($checkPost) {
+            return back()->withInput()->withErrors(['slug' => 'Impossibile creare lo slug']);
+        }
+
         $project->update($data); //permette l'update
 
         return redirect()->route('admin.projects.show', ['project' => $project->slug]);
